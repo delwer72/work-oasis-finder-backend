@@ -37,10 +37,10 @@ const userSchema: Schema = new mongoose.Schema(
   }
 );
 
-// ডেটাবেসে সেভ হওয়ার আগে পাসওয়ার্ড এনক্রিপ্ট বা হ্যাশ (Hash) করার মিডলওয়্যার
-userSchema.pre<IUser>("save", async function (next) {
+// ডেটাবেসে সেভ হওয়ার আগে পাসওয়ার্ড এনক্রিপ্ট বা হ্যাশ (Hash) করার মিডলওয়্যার
+userSchema.pre("save", async function (this: any) {
   if (!this.isModified("password")) {
-    next();
+    return; // next() এর বদলে return ব্যবহার করা হলো
   }
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);

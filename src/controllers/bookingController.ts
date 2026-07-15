@@ -1,6 +1,10 @@
-import { Response } from "express";
-import Booking from "../models/Booking";
-import { AuthRequest } from "../middlewares/authMiddleware";
+
+
+import type { Response } from "express";
+import Booking from "../models/Booking.js"; // .js যুক্ত করা হয়েছে
+import type { AuthRequest } from "../middlewares/authMiddleware.js"; // .js যুক্ত করা হয়েছে
+
+// ... আপনার বাকি কোড নিচে যেমন ছিল তেমনই থাকবে ...
 
 // @desc    নতুন বুকিং তৈরি করা
 // @route   POST /api/bookings
