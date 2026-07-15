@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import Workspace from "../models/Workspace";
-import { AuthRequest } from "../middlewares/authMiddleware";
+import type { Request, Response } from "express"; // type যুক্ত করা হয়েছে
+import Workspace from "../models/Workspace.js"; // .js যুক্ত করা হয়েছে
+import type { AuthRequest } from "../middlewares/authMiddleware.js"; // type এবং .js যুক্ত করা হয়েছে
 
 // @desc    সবগুলো স্পেস একসাথে দেখা
 // @route   GET /api/workspaces

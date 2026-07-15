@@ -1,4 +1,5 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose from "mongoose";
+import type { Document, Schema } from "mongoose"; // এখানে type যুক্ত করা হয়েছে
 
 // টাইপস্ক্রিপ্ট ইন্টারফেস
 export interface IBooking extends Document {
@@ -11,7 +12,7 @@ export interface IBooking extends Document {
   status: string;
 }
 
-// বুকিংয়ের ডেটাবেস স্কিমা
+// বুকিংয়ের ডেটাবেস স্কিমা
 const bookingSchema: Schema = new mongoose.Schema(
   {
     user: { 
@@ -22,11 +23,11 @@ const bookingSchema: Schema = new mongoose.Schema(
     workspace: { 
       type: mongoose.Schema.Types.ObjectId, 
       required: true, 
-      ref: "Workspace" // কোন স্পেসটি বুকিং করা হয়েছে
+      ref: "Workspace" // কোন স্পেসটি বুকিং করা হয়েছে
     },
     date: { 
       type: String, 
-      required: true // বুকিংয়ের তারিখ
+      required: true // বুকিংয়ের তারিখ
     },
     startTime: { 
       type: String, 
@@ -43,7 +44,7 @@ const bookingSchema: Schema = new mongoose.Schema(
     status: { 
       type: String, 
       enum: ["pending", "confirmed", "cancelled"], 
-      default: "pending" // বুকিংয়ের বর্তমান অবস্থা
+      default: "pending" // বুকিংয়ের বর্তমান অবস্থা
     },
   },
   {

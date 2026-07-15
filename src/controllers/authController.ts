@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import jwt from "jsonwebtoken";
-import User from "../models/User";
+import User from "../models/User.js"; // এখানে .js যুক্ত করা হয়েছে
 
 // JWT টোকেন তৈরি করার ফাংশন
 const generateToken = (id: string) => {
@@ -47,14 +47,14 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
 
 // @desc    ইউজার লগইন করা
 // @route   POST /api/users/login
-export const authUser = async (req: Request, res: Response): Promise<void> => {
+export const loginUser = async (req: Request, res: Response): Promise<void> => { // নাম loginUser করা হয়েছে
   try {
     const { email, password } = req.body;
 
-    // ইমেইল দিয়ে ইউজার খোঁজা
+    // ইমেইল দিয়ে ইউজার খোঁজা
     const user = await User.findOne({ email });
 
-    // ইউজার থাকলে এবং পাসওয়ার্ড মিললে টোকেন দেওয়া
+    // ইউজার থাকলে এবং পাসওয়ার্ড মিললে টোকেন দেওয়া
     if (user && (await user.matchPassword(password))) {
       res.json({
         _id: user.id,

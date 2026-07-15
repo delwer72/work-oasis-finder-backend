@@ -1,4 +1,5 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose from "mongoose";
+import type { Document, Schema } from "mongoose"; // এখানে type যুক্ত করা হয়েছে
 
 // টাইপস্ক্রিপ্ট ইন্টারফেস
 export interface IWorkspace extends Document {
