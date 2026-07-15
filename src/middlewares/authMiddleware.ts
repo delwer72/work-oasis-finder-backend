@@ -18,7 +18,8 @@ export const protect = async (req: AuthRequest, res: Response, next: NextFunctio
       token = req.headers.authorization.split(" ")[1];
 
       // টোকেন ডিকোড বা ভেরিফাই করা
-      const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: string };
+      // টোকেন ডিকোড করার লাইনটি ঠিক এভাবে লিখুন:
+const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: string };
 
       // ডেটাবেস থেকে ইউজার খুঁজে বের করে পাসওয়ার্ড বাদে বাকি ডেটা req.user-এ সেট করা
       const user = await User.findById(decoded.id).select("-password");
