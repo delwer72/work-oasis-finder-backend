@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import type { Request, Response } from 'express';
 export declare const registerUser: (req: Request, res: Response) => Promise<void>;
 export declare const authUser: (req: Request, res: Response) => Promise<void>;
 //# sourceMappingURL=authController.d.ts.map

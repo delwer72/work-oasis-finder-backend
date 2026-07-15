@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import type { Request, Response } from 'express';
 import { AuthRequest } from "../middlewares/authMiddleware";
 export declare const getWorkspaces: (req: Request, res: Response) => Promise<void>;
 export declare const getWorkspaceById: (req: Request, res: Response) => Promise<void>;

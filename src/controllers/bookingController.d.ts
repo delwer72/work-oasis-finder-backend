@@ -1,4 +1,4 @@
-import { Response } from "express";
+import type { Request, Response } from 'express';
 import { AuthRequest } from "../middlewares/authMiddleware";
 export declare const createBooking: (req: AuthRequest, res: Response) => Promise<void>;
 export declare const getMyBookings: (req: AuthRequest, res: Response) => Promise<void>;
