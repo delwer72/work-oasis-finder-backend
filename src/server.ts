@@ -33,3 +33,8 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+// আপনার server.ts বা index.ts ফাইলে এটি নিশ্চিত করুন
+const app = express();
+// ... রাউটস ...
+
+module.exports = app; // ভেরসেলের জন্য এক্সপোর্ট করা জরুরি
